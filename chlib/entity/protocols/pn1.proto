@@ -1,0 +1,72 @@
+package comphealth;
+import "penums.proto";
+import "pvisit.proto";
+import "pstat.proto";
+
+enum ENTRYTYPE{
+    NONE = 1;
+    DX = 2;
+    DRG = 3;
+}
+
+message PGroup{
+ required string key = 1;
+ optional string primary_entry_key = 2;
+ repeated string keys = 3;
+ optional string s = 4;
+ optional int32 count = 5;
+}
+
+message PEntry{
+ required string key = 1;
+ optional string dataset = 2;
+ required ENTRYTYPE etype = 3;
+ required string dx = 4;
+ required string initial = 5;
+ required string sub = 6;
+ required IntHist deltah = 7;
+ required AGG stats = 8;
+ repeated ISubset delta_subset = 9;
+ repeated SSubset age_subset = 10;
+ repeated ISubset year_subset = 11;
+ repeated RSEntry state_subset = 12;
+ optional string dataset_s = 16;
+ repeated Exclusion provenance = 17;
+ optional bool pediatric = 18 [default = false];
+}
+
+message Exclusion{
+    required int32 k = 1;
+    optional string s = 3;
+}
+
+
+message ISubset{
+    required int32 k = 1;
+    required AGG subset = 2;
+    optional string s = 3;
+}
+
+message SSubset{
+    required string k = 1;
+    required AGG subset = 2;
+    optional string s = 3;
+}
+
+message RSEntry{
+    required string k = 1;
+    required PEntry subset = 2;
+    optional string s = 3;
+}
+
+message PLVisits{
+    repeated PLVisit plvisits = 1;
+}
+
+message PLVisit{
+    required string dx = 1;
+    required string initial = 2;
+    required string sub = 3;
+    required int32 delta = 4;
+    required Visit v = 5;
+}

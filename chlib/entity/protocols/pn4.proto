@@ -1,0 +1,37 @@
+
+// Please edit protocol string  inside the N4/model.py
+package comphealth;
+import "penums.proto";
+import "pvisit.proto";
+import "pstat.proto";
+
+message NEntry{
+ required string key = 1;
+ required string index = 2;
+ required string sub = 3;
+ required int32 count = 12;
+ required int32 linked_visits = 13;
+ required int32 unlinked_visits = 14;
+ required int32 patients = 15;
+ required IntHist index_first_days = 16;
+ required IntHist sub_first_days = 20;
+ required int32 index_visits = 17;
+ required int32 sub_visits = 18;
+ required int32 intersection_visits = 19;
+ required int32 patient_index_first = 21;
+ required int32 patient_sub_first = 23;
+ repeated DXI dxh = 24;
+ repeated KVI primary_prh = 25;
+ repeated KVI prh = 26;
+ repeated KVI exh = 27;
+ repeated KVI drgh = 28;
+ optional AGG first_inpatient_visit = 29;
+ repeated N4VCOUNT vtype_count = 30;
+
+}
+message N4VCOUNT{
+    required string k = 1;
+    optional int32 IP = 2;
+    optional int32 ED = 3;
+    optional int32 AS = 4;
+}

@@ -1,0 +1,160 @@
+package comphealth;
+import "penums.proto";
+import "pvisit.proto";
+
+message PAGG{
+    required string key = 1;
+    optional string dataset = 2;
+    required bool linked = 3;
+    required bool unlinked = 4;
+    required int32 patient_count = 6;
+    required int32 visit_count = 7;
+    required int32 linked_count = 8;
+    required int32 unlinked_count = 9;
+    repeated PSubsets subsets = 10;
+    repeated VisitDeltaHist delta_hist = 11;
+    repeated VisitDeltaHist delta_error_hist = 13;
+    repeated EtypeCountHist count_hist = 12;
+    optional int32 edge_count = 14;
+    optional int32 negative_delta_count = 15;
+    required Policy policy = 16;
+
+}
+
+message PSubsets{
+    required bool linked = 1;
+    required ETYPE vtype = 2;
+    required AGG subset = 3;
+    optional string k = 4;
+}
+
+message VisitDeltaHist{
+    required ETYPE initial = 1;
+    required ETYPE sub = 2;
+    required int32 delta = 3;
+    required int32 v = 4;
+}
+
+message AGG {
+    required string key = 1;
+    required bool mini = 26 [default = false];
+    optional int32 count = 2 [default = 0];
+    required Policy policy = 33;
+    optional int64 charges_num = 31;
+    optional int64 charges_den = 32;
+    optional IntHist ageh = 3;
+    repeated SexHist sexh = 4;
+    repeated RaceHist raceh = 5;
+    repeated SourceHist sourceh = 6;
+    repeated DispositionHist disph = 7;
+    repeated PayerHist payerh = 8;
+    repeated DeathHist deathh = 9;
+    repeated DXI dxh = 10;
+    repeated KVI primary_prh = 11;
+    repeated KVI prh = 13;
+    repeated KVI exh = 14;
+    repeated KVI drgh = 15;
+    optional IntHist losh = 16;
+    repeated DNRHist dnrh = 18;
+    repeated PZipHist pziph = 19;
+    repeated KVII agedh = 21;
+    repeated KVII yearh = 22;
+    repeated EtypeHist vtypeh = 23;
+    repeated string facilityh = 24;
+    optional string dataset = 25;
+    }
+
+message Policy{
+   required int32 min_count = 1;
+   required int32 min_hospital = 2;
+   required int32 base = 3;
+   required int32 min_subset = 4;
+}
+
+
+message IntHist{
+   repeated KVII h = 1;
+   optional int32 median = 2;
+   optional int32 fq = 3;
+   optional int32 tq = 4;
+   optional float mean = 5;
+}
+
+message KVII {
+    required int32 k = 1;
+    required int32 v = 2;
+    optional string s = 3;
+  }
+
+message DXI {
+ required string k = 1;
+ optional int32 primary = 2;
+ optional int32 poa = 3;
+ optional int32 all = 4;
+ optional string c = 5;
+ optional string s = 6;
+}
+
+
+message DispositionHist {
+    required DISPOSITION k = 1;
+    required int32 v = 2;
+    optional string s = 3;
+}
+
+message EtypeHist {
+    required ETYPE k = 1;
+    required int32 v = 2;
+    optional string s = 3;
+}
+
+message EtypeCountHist {
+    required bool linked = 5;
+    required int32 ip = 1;
+    required int32 ed = 2;
+    required int32 asg = 3;
+    required int32 v = 4;
+}
+
+message SourceHist {
+    required SOURCE k = 1;
+    required int32 v = 2;
+    optional string s = 3;
+}
+
+message PayerHist {
+    required PAYER k = 1;
+    required int32 v = 2;
+    optional string s = 3;
+}
+
+message RaceHist {
+    required RACE k = 1;
+    required int32 v = 2;
+    optional string s = 3;
+}
+
+message DeathHist {
+    required DEATH k = 1;
+    required int32 v = 2;
+    optional string s = 3;
+}
+
+
+message SexHist {
+    required SEX k = 1;
+    required int32 v = 2;
+    optional string s = 3;
+}
+
+message DNRHist {
+    required DNR k = 1;
+    required int32 v = 2;
+    optional string s = 3;
+}
+message PZipHist {
+    required PZIP k = 1;
+    required int32 v = 2;
+    optional string s = 3;
+}
+

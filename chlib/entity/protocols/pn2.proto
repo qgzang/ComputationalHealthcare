@@ -1,0 +1,41 @@
+package comphealth;
+import "penums.proto";
+import "pvisit.proto";
+import "pstat.proto";
+import "pn1.proto";
+
+enum KEYTYPE{
+    N2_ICDPR = 120;
+    N2_DX = 122;
+    N2_DRG = 123;
+    N2_ALL = 124;
+}
+
+
+message REntry{
+ required string key = 11;
+ required string initial_key = 1;
+ required string sub_key = 2;
+ optional string dataset = 3;
+ optional int32 delta = 8;
+ required AGG initial = 4;
+ required AGG sub = 5;
+ required IntHist deltah = 6;
+ required IntHist deltaweekh = 12;
+ repeated Exclusion provenance = 7;
+ required KEYTYPE initial_ktype = 9;
+ required KEYTYPE sub_ktype = 10;
+}
+
+
+message RNode{
+ required string key = 1;
+ required KEYTYPE ktype = 2;
+ optional string dataset = 3;
+ required AGG all = 4;
+ optional AGG discharged = 5;
+ optional AGG transferred = 6;
+ optional AGG died = 7;
+ repeated Exclusion provenance = 8;
+ required bool linked = 9;
+}

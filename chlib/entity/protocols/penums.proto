@@ -1,0 +1,93 @@
+package comphealth;
+
+enum ETYPE {
+    IP = 0;
+    ED = 1;
+    AS = 2;
+    OUT = 3;
+    H = 4;
+    O = 5;
+    ALL = 6;
+}
+
+  enum SEX {
+    MALE = 10;
+    FEMALE = 11;
+    SEX_UNKNOWN = 12;
+  }
+
+  enum DEATH {
+    ALIVE = 30;
+    DEAD = 31;
+    DEATH_UNKNOWN = 32;
+  }
+  enum PAYER {
+    MEDICARE = 41;
+    MEDICAID = 42;
+    PRIVATE = 43;
+    SELF = 44;
+    OTHER = 45;
+    P_UNKNOWN = 46;
+    FREE = 47;
+  }
+
+  enum RACE {
+    WHITE = 51;
+    BLACK = 52;
+    HISPANIC = 53;
+    ASIAN = 54;
+    NATIVE = 55;
+    R_OTHER = 56;
+    R_UNKNOWN = 57;
+  }
+
+  enum SOURCE {
+    S_ROUTINE = 61;
+    S_HOSPITAL = 62;
+    S_SNF = 63;
+    S_HOME = 64;
+    S_OTHER = 65;
+    S_ED = 66;
+    S_UNKNOWN = 67;
+    S_COURT = 68;
+    S_TEXAS_PSYCH = 600;
+    S_TEXAS_CRITICAL = 601;
+    S_TEXAS_INTERNAL = 602;
+  }
+
+
+  enum DISPOSITION {
+    D_ROUTINE = 71;
+    D_HOSPITAL = 72;
+    D_SNF = 73;
+    D_ICF = 701;
+    D_HOME = 74;
+    D_DEATH = 75;
+    D_OTHER = 76;
+    D_UNKNOWN = 77;
+    D_AMA = 78;
+    D_UNKNOWNALIVE = 79;
+    D_COURT = 70;
+
+  }
+
+  enum DNR {
+    DNR_NO = 80;
+    DNR_YES = 81;
+    DNR_UNKNOWN = 82;
+    DNR_UNAVAILABLE = 83;
+  }
+
+  enum CTYPE {
+    ICD = 90;
+    CPT = 91;
+  }
+
+
+enum PZIP {
+    Z_FIRST = 101;
+    Z_SECOND = 102;
+    Z_THIRD = 103;
+    Z_FOURTH = 104;
+    Z_UNKNOWN = 105;
+}

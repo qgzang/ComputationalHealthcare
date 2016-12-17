@@ -1,0 +1,56 @@
+{
+  "cpp_log_path": "/root/ComputationalHealthcare/logs/cpp_analysis.log",
+  "DATASETS": {
+    "HCUPNRD": {
+      "NAME":"HCUP Nationwide Readmission Database 2013",
+      "LINKED":true,
+      "ROOT": "/root/data/CH/NRD/",
+      "STATES":[],
+      "ANALYTICS":{
+        "aggregate_visits":false,
+        "aggregate_readmits":true,
+        "aggregate_revisits":false,
+        "aggregate_patients":true
+      },
+      "YEARS": [2013],
+      "DENOMINATOR":25
+    },
+    "TX": {
+      "NAME":"Texas public use inpatient data file 2006-09",
+      "LINKED":false,
+      "ROOT": "/root/data/CH/TX/",
+      "STATES":[
+        "TX"
+      ],
+      "YEARS":
+      [2006,
+        2007,
+        2008,
+        2009
+      ],
+      "RAW_FILES":["PUDF_base1q2006_tab.txt.gz",
+        "PUDF_base1q2007_tab.txt.gz",
+        "PUDF_base1q2008_tab.txt.gz",
+        "PUDF_base1q2009_tab.txt.gz",
+        "PUDF_base2q2006_tab.txt.gz",
+        "PUDF_base2q2007_tab.txt.gz",
+        "PUDF_base2q2008_tab.txt.gz",
+        "PUDF_base2q2009_tab.txt.gz",
+        "PUDF_base3q2006_tab.txt.gz",
+        "PUDF_base3q2007_tab.txt.gz",
+        "PUDF_base3q2008_tab.txt.gz",
+        "PUDF_base3q2009_tab.txt.gz",
+        "PUDF_base4q2006_tab.txt.gz",
+        "PUDF_base4q2007_tab.txt.gz",
+        "PUDF_base4q2008_tab.txt.gz",
+        "PUDF_base4q2009_tab.txt.gz"],
+      "ANALYTICS":{
+        "aggregate_visits":true,
+        "aggregate_readmits":false,
+        "aggregate_revisits":false,
+        "aggregate_patients":false
+      },
+      "DENOMINATOR":12
+    }
+  }
+}

@@ -1,0 +1,90 @@
+package comphealth;
+import "penums.proto";
+
+
+  message KVI {
+    required string k = 1;
+    required int32 v = 2;
+    optional string s = 3;
+    optional float f = 4;
+  }
+
+
+  message KVS {
+    required string k = 1;
+    required string v = 2;
+  }
+
+  message KVF {
+    required string k = 1;
+    required float v = 2;
+
+  }
+
+
+  message PR {
+    required string pcode = 1;
+    optional int32 pday = 2;
+    required CTYPE ctype = 3;
+    optional int32 occur = 4 [default = 1];
+  }
+
+
+message VisitEdge {
+    required Visit initial = 1;
+    required Visit sub = 2;
+}
+
+
+
+
+message Visit {
+  required string key = 1;
+  required string patient_key = 2;
+  required string dataset = 3;
+  required string state = 4;
+  required string facility = 5;
+  required ETYPE vtype = 6;
+  required int32 age = 7 [default = -1];
+  required SEX sex = 8;
+  required RACE race = 9;
+  required SOURCE source = 10;
+  required DISPOSITION disposition = 11;
+  required int32 los = 12;
+  required DEATH death = 13;
+  required PAYER payer = 14;
+  required string primary_diagnosis = 15;
+  optional PR primary_procedure = 16;
+  required string drg = 18;
+  repeated string dxs = 19;
+  repeated string exs = 20;
+  repeated string poas = 37;
+  repeated PR prs = 21;
+  required int32 year = 22;
+  required int32 day = 23;
+  required int32 month = 24 [default = -1];
+  required int32 quarter = 26 [default = -1];
+  required PZIP zip = 27;
+  required DNR dnr = 28;
+  required float charge = 30;
+  repeated KVS dstring = 34;
+  repeated KVI dint = 35;
+  repeated KVF dfloat = 36;
+}
+
+
+message Patient{
+    optional string patient_key = 1;
+    repeated Visit visits = 2;
+    optional string raw = 3;
+    optional bool linked = 4 [default = false];
+}
+
+
+message PatientList{
+    repeated Patient patients = 1;
+}
+
+message VisitList{
+    repeated Visit visits = 1;
+}
