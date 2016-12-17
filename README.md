@@ -83,9 +83,6 @@ visits {
     ctype: ICD
   }
   drg: "DG05"
-  dxs: "D00"
-  dxs: "D20"
-  dxs: "D709"
   prs {
     pcode: "P8659"
     pday: -1
@@ -93,7 +90,6 @@ visits {
     occur: 1
   }
   year: 2013
-  day: 5151
   month: 10
   quarter: 1
   zip: Z_THIRD
@@ -109,7 +105,7 @@ linked: true
   state: "NRD"
   facility: "1232131"
   vtype: IP
-  age: 23
+  age: 65
   sex: FEMALE
   race: R_UNKNOWN
   source: S_ED
@@ -124,8 +120,6 @@ linked: true
     ctype: ICD
   }
   drg: "DG05"
-  dxs: "D00"
-  dxs: "D20"
   dxs: "D709"
   prs {
     pcode: "P8659"
