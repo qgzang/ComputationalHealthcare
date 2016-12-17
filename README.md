@@ -39,7 +39,7 @@ also contains a Jupyter notebook server which runs automatically when the contai
 complete you can use the jupyter notebook server running (inside the container) on port 8888 of your local machine.
 
 
-## Simple API
+## Quick overview  
 
 ```python
     import chlib
